@@ -8,7 +8,7 @@
                     <p>{{noticia.Descripcion}}</p>
                     <small>{{noticia.FechaCreacion}} - {{noticia.UltimaModificacion}}</small>
                     <br>
-                    <a type="button" class="btn btn-outline-primary" routerLinkActive="active" [routerLink]="['/noticias-edit', noticia.Id]">
+                    <a class="btn btn-outline-primary" routerLinkActive="active" [routerLink]="['/noticias-edit/', noticia.Id]">
                         Editar
                     </a>
                 </div>

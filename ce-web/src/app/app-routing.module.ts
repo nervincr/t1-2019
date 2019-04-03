@@ -9,10 +9,10 @@ const routes: Routes = [
   { path: 'local-storage', component: LocalStorageComponent },
   { path: 'noticias-list', component: NoticiasListComponent },
   { path: 'noticias/list', component: NoticiasListComponent },
-  { path: '**', component: NoticiasListComponent },
   { path: 'noticias-upsert', component: NoticiasUpsertComponent },
   { path: 'noticias-edit/:id', component: NoticiasUpsertComponent },
-  { path: 'noticias-insert', component: NoticiasUpsertComponent }
+  { path: 'noticias-insert', component: NoticiasUpsertComponent },
+  { path: '**', component: NoticiasListComponent }
 ];
 
 @NgModule({
