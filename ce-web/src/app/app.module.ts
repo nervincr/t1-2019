@@ -13,6 +13,8 @@ import { LocalStorageComponent } from './components/local-storage/local-storage.
 import { FormsModule } from '@angular/forms';
 import { NoticiasListComponent } from './components/noticias-list/noticias-list.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NoticiasUpsertComponent } from './components/noticias-upsert/noticias-upsert.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     NavbarComponent,
     FooterComponent,
     LocalStorageComponent,
-    NoticiasListComponent
+    NoticiasListComponent,
+    NoticiasUpsertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CarouselModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFontAwesomeModule
   ],
   providers: [ DatePipe, DataStorageService],
   bootstrap: [AppComponent]

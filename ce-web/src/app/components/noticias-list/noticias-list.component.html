@@ -6,9 +6,11 @@
                 <div class="carousel-caption">
                     <h4>{{noticia.Titulo}}</h4>
                     <p>{{noticia.Descripcion}}</p>
-                    <small>{{noticia.FechaCreacion}}</small>
+                    <small>{{noticia.FechaCreacion}} - {{noticia.UltimaModificacion}}</small>
                     <br>
-                    <small>{{noticia.UltimaModificacion}}</small>
+                    <a type="button" class="btn btn-outline-primary" routerLinkActive="active" [routerLink]="['/noticias-edit', noticia.Id]">
+                        Editar
+                    </a>
                 </div>
             </slide>
         </carousel>

@@ -13,6 +13,8 @@ export class NoticiasListComponent implements OnInit {
   aNoticiaGuardada:cNoticia[] = [];
   Key:string = "Lista";
   check:boolean = false;
+  router: any;
+  route: any;
   constructor(private sDataStorage:DataStorageService) { }
 
   ngOnInit() {
