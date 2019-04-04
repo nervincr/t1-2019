@@ -11,16 +11,25 @@ import { DataStorageService } from 'src/app/services/dataStorage/data-storage.se
 export class NoticiasUpsertComponent implements OnInit {
   private Id: number;
   public formGroup: FormGroup;
-  private formBuilder: FormBuilder;
+
   private Key:string = "Lista";
   
-  constructor( private route: ActivatedRoute, private StorageService: DataStorageService) {
-    //this.iniciarNoticia();
+  constructor( private route: ActivatedRoute, 
+    private StorageService: DataStorageService, 
+    private formBuilder: FormBuilder) {
+    this.iniciarNoticia();
+
+    this.Id = this.route.snapshot.params['id'];
+    
+    if(this.Id){
+      console.log(this.Id);
+      this.cargarNoticia(this.Id);
+    }
+    
    }
 
    ngOnInit() {
-    this.Id = this.route.snapshot.params['id'];
-    this.cargarNoticia(this.Id);
+   
   }
      
    iniciarNoticia = () => {
@@ -64,13 +73,14 @@ export class NoticiasUpsertComponent implements OnInit {
     const listaNoticias = this.StorageService.getObjectValue(this.Key);
     listaNoticias.forEach(noticia => {
       if (noticia.Id == id) {
+        console.log(this.formGroup);
         this.formGroup = this.formBuilder.group({
-          Id: [id, [Validators.required],],
-          Titulo: [noticia.Titulo, [Validators.required]],
-          Imagen: [noticia.Imagen, [Validators.required]],
-          Descripcion: [noticia.Descripcion, [Validators.required, Validators.minLength(15)]],
-          FechaCreacion: [noticia.FechaCreacion],
-          UltimaModificacion: [noticia.UltimaModificacion],
+          id: [id, [Validators.required],],
+          titulo: [noticia.Titulo, [Validators.required]],
+          imagen: [noticia.Imagen, [Validators.required]],
+          descripcion: [noticia.Descripcion, [Validators.required, Validators.minLength(15)]],
+          fechaCreacion: [noticia.FechaCreacion],
+          ultimaModificacion: [noticia.UltimaModificacion],
         });
       }
     });
